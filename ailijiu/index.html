@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="艾力久官网，提供专业的艾力久品牌产品介绍、使用指南及售后服务。了解艾力久的核心优势、产品系列及用户评价，一站式解决您的相关需求。">
+    <meta name="keywords" content="艾力久,艾力久官网,艾力久产品,艾力久使用指南,艾力久服务">
+    <title>艾力久-专业产品与服务解决方案平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #ff9800;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: var(--bg-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background-color: var(--white);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Products Showcase */
+        .products {
+            padding: 80px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--text-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .product-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+        }
+
+        .check-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item .faq-question::after {
+            content: "+";
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary-color);">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                </svg>
+                艾力久<span>官网</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#products">产品系列</a></li>
+                    <li><a href="#about">品牌介绍</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-btn">联系我们</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>艾力久，专注品质与信赖</h1>
+                <p>我们致力于为用户提供专业、高效、可靠的产品与服务解决方案。选择艾力久，开启您的卓越体验。</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="cta-btn">探索产品</a>
+                    <a href="#about" class="btn-outline">了解品牌</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>核心优势</h2>
+                    <p>为什么选择艾力久作为您的合作伙伴</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">✦</div>
+                        <h3>品质保障</h3>
+                        <p>严格把控每一个生产环节，确保产品符合国际高标准，为您提供长久耐用的使用体验。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>高效服务</h3>
+                        <p>专业的技术团队为您提供全天候的售后支持，快速响应您的需求，解决后顾之忧。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>安全可靠</h3>
+                        <p>采用先进的技术和材料，确保产品在各种复杂环境下的稳定运行与安全性。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选产品系列</h2>
+                    <p>针对不同需求量身定制的专业方案</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">热销</span>
+                            <img src="https://picsum.photos/seed/ali9-1/400/300" alt="艾力久专业版">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">企业级</span>
+                            <h3 class="product-title">艾力久专业版 Pro</h3>
+                            <p class="product-desc">专为大型团队设计，提供全方位的数据分析与协作管理功能，提升企业运营效率。</p>
+                            <div class="product-footer">
+                                <span class="product-price">¥1,299/年</span>
+                                <a href="#" class="product-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">新品</span>
+                            <img src="https://picsum.photos/seed/ali9-2/400/300" alt="艾力久便携版">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">个人版</span>
+                            <h3 class="product-title">艾力久便携版 Mobile</h3>
+                            <p class="product-desc">轻量级设计，随时随地管理您的个人任务与生活，支持多端同步。</p>
+                            <div class="product-footer">
+                                <span class="product-price">¥99/年</span>
+                                <a href="#" class="product-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="https://picsum.photos/seed/ali9-3/400/300" alt="艾力久企业定制">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">定制服务</span>
+                            <h3 class="product-title">艾力久企业定制</h3>
+                            <p class="product-desc">根据企业特定需求进行深度开发与功能模块定制，打造专属数字化解决方案。</p>
+                            <div class="product-footer">
+                                <span class="product-price">联系咨询</span>
+                                <a href="#" class="product-link">获取方案 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/ali9-office/600/400" alt="艾力久办公环境">
+                    </div>
+                    <div class="about-text">
+                        <h2>关于艾力久</h2>
+                        <p>艾力久自创立以来，始终坚持以客户需求为导向，不断创新技术，优化服务。我们拥有一支经验丰富、充满激情的研发团队，致力于将最前沿的技术转化为用户实际可用的生产力工具。</p>
+                        <p>我们的愿景是成为行业内最受信赖的品牌，通过持续的技术革新，帮助用户在数字化浪潮中保持领先优势。</p>
+                        <ul class="check-list">
+                            <li>ISO9001 质量管理体系认证</li>
+                            <li>拥有多项核心自主知识产权</li>
+                            <li>服务超过 10,000+ 企业用户</li>
+                            <li>提供 7x24 小时全天候技术支持</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>为您解答在使用艾力久产品时遇到的问题</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">艾力久的产品支持哪些操作系统？</div>
+                        <div class="faq-answer">艾力久专业版支持 Windows、macOS 及主流 Linux 发行版；移动版支持 iOS 和 Android 系统。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何申请企业定制服务？</div>
+                        <div class="faq-answer">您可以通过页面底部的联系方式与我们取得联系，我们的销售顾问将为您安排一对一的沟通。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">购买后是否支持退款？</div>
+                        <div class="faq-answer">我们提供 7 天无理由试用，在试用期内不满意可申请全额退款。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">数据安全如何保障？</div>
+                        <div class="faq-answer">我们采用银行级加密技术，所有数据均存储在本地或符合安全标准的服务器上，定期进行安全审计。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>艾力久</h4>
+                    <p style="font-size: 14px; line-height: 1.8; color: #999;">
+                        致力于为全球用户提供卓越的数字化解决方案，让科技服务于每一个人的工作与生活。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#products">产品中心</a></li>
+                        <li><a href="#about">品牌故事</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：support@ali9.com</li>
+                        <li>地址：科技园区创新大道 888 号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 艾力久 版权所有 | 隐私政策 | 服务条款</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for Navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
