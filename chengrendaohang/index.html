@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="成人导航网站 - 精选优质成人资源聚合平台，提供安全、高效、分类清晰的导航入口，满足多元化浏览需求。">
+    <meta name="keywords" content="成人导航网站, 成人导航, 成人网站, 资源导航, 精品导航">
+    <title>成人导航网站 - 安全精选资源聚合与导航指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1014;
+            --card-bg: #181a20;
+            --card-hover: #232630;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent-color: #ff4757;
+            --accent-hover: #ff6b81;
+            --border-color: #2f3440;
+            --nav-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: rgba(15, 16, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            color: var(--text-main);
+            outline: none;
+            width: 200px;
+        }
+
+        .search-bar button {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 5%;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Categories Grid */
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background-color: var(--card-hover);
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+        }
+
+        .category-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Featured List */
+        .featured-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .site-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #444;
+        }
+
+        .site-thumb {
+            width: 100%;
+            height: 160px;
+            background-color: #2a2d36;
+            position: relative;
+        }
+
+        .site-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .site-info {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .site-desc {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .site-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            background-color: rgba(255, 71, 87, 0.1);
+            color: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .visit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .visit-btn:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Safety Guide */
+        .safety-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        .safety-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .safety-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .safety-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .safety-content h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .safety-content p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b0c0e;
+            padding: 40px 5%;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .search-bar { display: none; }
+            .stats { flex-direction: column; gap: 15px; }
+            .safety-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span>★</span> 成人导航网站
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">最新收录</a>
+            <a href="#">热门排行</a>
+            <a href="#">专题专区</a>
+            <a href="#">关于我们</a>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索站点或分类...">
+            <button>🔍</button>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>探索多元成人资源</h1>
+            <p>成人导航网站致力于为您提供安全、高效、分类清晰的资源入口。我们严格筛选，确保收录站点内容健康、访问稳定，满足您不同的浏览需求。</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <span>收录站点</span>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <span>特色分类</span>
+                </div>
+                <div class="stat-item">
+                    <h3>24h</h3>
+                    <span>实时更新</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-title">热门分类浏览</div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="category-icon">🎬</span>
+                    <span class="category-name">高清视频</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🖼️</span>
+                    <span class="category-name">高清图集</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <span class="category-name">互动游戏</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💬</span>
+                    <span class="category-name">直播聊天</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🧠</span>
+                    <span class="category-name">情感咨询</span>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📱</span>
+                    <span class="category-name">移动端</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Sites -->
+        <section>
+            <div class="section-title">
+                精选推荐
+                <a href="#" style="font-size: 0.85rem; color: var(--accent-color);">查看全部 &raquo;</a>
+            </div>
+            <div class="featured-list">
+                <!-- Card 1 -->
+                <article class="site-card">
+                    <div class="site-thumb">
+                        <img src="https://picsum.photos/seed/ad1/400/250" alt="Site Thumbnail">
+                    </div>
+                    <div class="site-info">
+                        <h3 class="site-title">全高清影视库</h3>
+                        <div class="site-tags">
+                            <span class="tag">4K画质</span>
+                            <span class="tag">免费</span>
+                        </div>
+                        <p class="site-desc">提供海量高清视频资源，分类细致，更新迅速，支持在线播放及下载。</p>
+                        <a href="#" class="visit-btn">立即访问</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="site-card">
+                    <div class="site-thumb">
+                        <img src="https://picsum.photos/seed/ad2/400/250" alt="Site Thumbnail">
+                    </div>
+                    <div class="site-info">
+                        <h3 class="site-title">精选图集社区</h3>
+                        <div class="site-tags">
+                            <span class="tag">每日更新</span>
+                            <span class="tag">高清</span>
+                        </div>
+                        <p class="site-desc">汇集全球优质摄影作品，社区氛围活跃，支持用户上传与互动。</p>
+                        <a href="#" class="visit-btn">立即访问</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="site-card">
+                    <div class="site-thumb">
+                        <img src="https://picsum.photos/seed/ad3/400/250" alt="Site Thumbnail">
+                    </div>
+                    <div class="site-info">
+                        <h3 class="site-title">互动体验平台</h3>
+                        <div class="site-tags">
+                            <span class="tag">实时互动</span>
+                            <span class="tag">专业</span>
+                        </div>
+                        <p class="site-desc">沉浸式互动体验，提供多种角色扮演与场景模拟，满足深度需求。</p>
+                        <a href="#" class="visit-btn">立即访问</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Safety Guide -->
+        <section class="safety-section">
+            <div class="section-title">安全浏览指南</div>
+            <div class="safety-list">
+                <div class="safety-item">
+                    <div class="safety-icon">🔒</div>
+                    <div class="safety-content">
+                        <h4>隐私保护</h4>
+                        <p>建议使用隐私模式或无痕浏览，避免记录浏览历史，保护个人隐私。</p>
+                    </div>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">🛡️</div>
+                    <div class="safety-content">
+                        <h4>网络安全</h4>
+                        <p>请勿在非官方或不明链接下载文件，安装必要的安全防护软件。</p>
+                    </div>
+                </div>
+                <div class="safety-item">
+                    <div class="safety-icon">⚖️</div>
+                    <div class="safety-content">
+                        <h4>遵守法规</h4>
+                        <p>请严格遵守当地法律法规，理性消费，拒绝非法内容传播。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">免责声明</a>
+            <a href="#">隐私政策</a>
+            <a href="#">网站地图</a>
+            <a href="#">联系我们</a>
+        </div>
+        <p class="copyright">© 2023 成人导航网站. All rights reserved. 本站内容仅供成年用户参考。</p>
+    </footer>
+
+</body>
+</html>
