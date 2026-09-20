@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和合本圣经 - 永恒真理的中文译本与研读指南</title>
+    <meta name="description" content="本站提供权威的和合本圣经在线阅读，涵盖新旧约全书。包含逐章经文查询、新旧约索引、常见研读问题解答及阅读建议，旨在为华语信徒与学习者提供纯净、准确的圣经阅读体验。">
+    <meta name="keywords" content="和合本圣经, 在线圣经, 圣经阅读, 中文圣经, 新约旧约, 圣经研读">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #8e44ad;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: #d4af37; /* Gold color for accent */
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #732d91;
+        }
+
+        /* Navigation Tabs */
+        .tabs-nav {
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: -1px;
+        }
+
+        .tabs-nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .tabs-nav li a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text-secondary);
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tabs-nav li a.active, .tabs-nav li a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        /* Old Testament Grid */
+        .ot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .book-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .book-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .book-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Reading Interface (Simulated) */
+        .reading-area {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .reading-header {
+            background: #f1f2f6;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reading-content {
+            padding: 2rem;
+            font-size: 1.15rem;
+            text-align: justify;
+            color: #2c3e50;
+        }
+
+        .verse-number {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 0.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav {
+                display: none; /* Simple hiding for mobile, ideally would be a hamburger menu */
+            }
+
+            .header-inner {
+                justify-content: center;
+            }
+
+            .reading-content {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>❖</span> 和合本圣经
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#new-testament">新约</a></li>
+                    <li><a href="#old-testament">旧约</a></li>
+                    <li><a href="#reading">阅读</a></li>
+                    <li><a href="#help">帮助</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>永恒真理的中文译本</h1>
+            <p>为您提供标准、流畅、易读的和合本圣经在线阅读服务。无论您是初次研读还是寻求安慰，这里都有您需要的经文。</p>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="输入经文、卷名或关键词（如：创世记、爱、救赎）...">
+                <button type="button" onclick="performSearch()">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="tabs-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#new-testament" class="active">新约全书</a></li>
+                <li><a href="#old-testament">旧约全书</a></li>
+                <li><a href="#reading">快速阅读</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- New Testament Section -->
+        <section id="new-testament">
+            <h2 class="section-title">新约圣经</h2>
+            <div class="ot-grid">
+                <div class="book-card" onclick="loadBook('马太福音', 40)">
+                    <h3>马太福音</h3>
+                    <p>Matthew</p>
+                </div>
+                <div class="book-card" onclick="loadBook('马可福音', 16)">
+                    <h3>马可福音</h3>
+                    <p>Mark</p>
+                </div>
+                <div class="book-card" onclick="loadBook('路加福音', 24)">
+                    <h3>路加福音</h3>
+                    <p>Luke</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约翰福音', 21)">
+                    <h3>约翰福音</h3>
+                    <p>John</p>
+                </div>
+                <div class="book-card" onclick="loadBook('使徒行传', 28)">
+                    <h3>使徒行传</h3>
+                    <p>Acts</p>
+                </div>
+                <div class="book-card" onclick="loadBook('罗马书', 16)">
+                    <h3>罗马书</h3>
+                    <p>Romans</p>
+                </div>
+                <div class="book-card" onclick="loadBook('哥林多前书', 16)">
+                    <h3>哥林多前书</h3>
+                    <p>1 Cor.</p>
+                </div>
+                <div class="book-card" onclick="loadBook('哥林多后书', 13)">
+                    <h3>哥林多后书</h3>
+                    <p>2 Cor.</p>
+                </div>
+                <div class="book-card" onclick="loadBook('加拉太书', 6)">
+                    <h3>加拉太书</h3>
+                    <p>Galatians</p>
+                </div>
+                <div class="book-card" onclick="loadBook('以弗所书', 6)">
+                    <h3>以弗所书</h3>
+                    <p>Ephesians</p>
+                </div>
+                <div class="book-card" onclick="loadBook('腓立比书', 4)">
+                    <h3>腓立比书</h3>
+                    <p>Philippians</p>
+                </div>
+                <div class="book-card" onclick="loadBook('歌罗西书', 4)">
+                    <h3>歌罗西书</h3>
+                    <p>Colossians</p>
+                </div>
+                <div class="book-card" onclick="loadBook('帖撒罗尼迦前书', 5)">
+                    <h3>帖撒罗尼迦前书</h3>
+                    <p>1 Thess.</p>
+                </div>
+                <div class="book-card" onclick="loadBook('提摩太前书', 6)">
+                    <h3>提摩太前书</h3>
+                    <p>1 Tim.</p>
+                </div>
+                <div class="book-card" onclick="loadBook('提摩太后书', 4)">
+                    <h3>提摩太后书</h3>
+                    <p>2 Tim.</p>
+                </div>
+                <div class="book-card" onclick="loadBook('提多书', 3)">
+                    <h3>提多书</h3>
+                    <p>Titus</p>
+                </div>
+                <div class="book-card" onclick="loadBook('腓利门书', 1)">
+                    <h3>腓利门书</h3>
+                    <p>Philemon</p>
+                </div>
+                <div class="book-card" onclick="loadBook('希伯来书', 13)">
+                    <h3>希伯来书</h3>
+                    <p>Hebrews</p>
+                </div>
+                <div class="book-card" onclick="loadBook('雅各书', 5)">
+                    <h3>雅各书</h3>
+                    <p>James</p>
+                </div>
+                <div class="book-card" onclick="loadBook('彼得前书', 5)">
+                    <h3>彼得前书</h3>
+                    <p>1 Peter</p>
+                </div>
+                <div class="book-card" onclick="loadBook('彼得后书', 3)">
+                    <h3>彼得后书</h3>
+                    <p>2 Peter</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约翰一书', 5)">
+                    <h3>约翰一书</h3>
+                    <p>1 John</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约翰二书', 1)">
+                    <h3>约翰二书</h3>
+                    <p>2 John</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约翰三书', 1)">
+                    <h3>约翰三书</h3>
+                    <p>3 John</p>
+                </div>
+                <div class="book-card" onclick="loadBook('犹大书', 1)">
+                    <h3>犹大书</h3>
+                    <p>Jude</p>
+                </div>
+                <div class="book-card" onclick="loadBook('启示录', 22)">
+                    <h3>启示录</h3>
+                    <p>Revelation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Old Testament Section -->
+        <section id="old-testament">
+            <h2 class="section-title">旧约圣经</h2>
+            <div class="ot-grid">
+                <div class="book-card" onclick="loadBook('创世记', 50)">
+                    <h3>创世记</h3>
+                    <p>Genesis</p>
+                </div>
+                <div class="book-card" onclick="loadBook('出埃及记', 40)">
+                    <h3>出埃及记</h3>
+                    <p>Exodus</p>
+                </div>
+                <div class="book-card" onclick="loadBook('利未记', 27)">
+                    <h3>利未记</h3>
+                    <p>Leviticus</p>
+                </div>
+                <div class="book-card" onclick="loadBook('民数记', 36)">
+                    <h3>民数记</h3>
+                    <p>Numbers</p>
+                </div>
+                <div class="book-card" onclick="loadBook('申命记', 34)">
+                    <h3>申命记</h3>
+                    <p>Deuteronomy</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约书亚记', 24)">
+                    <h3>约书亚记</h3>
+                    <p>Joshua</p>
+                </div>
+                <div class="book-card" onclick="loadBook('士师记', 21)">
+                    <h3>士师记</h3>
+                    <p>Judges</p>
+                </div>
+                <div class="book-card" onclick="loadBook('路得记', 4)">
+                    <h3>路得记</h3>
+                    <p>Ruth</p>
+                </div>
+                <div class="book-card" onclick="loadBook('撒母耳记上', 31)">
+                    <h3>撒母耳记上</h3>
+                    <p>1 Samuel</p>
+                </div>
+                <div class="book-card" onclick="loadBook('撒母耳记下', 24)">
+                    <h3>撒母耳记下</h3>
+                    <p>2 Samuel</p>
+                </div>
+                <div class="book-card" onclick="loadBook('列王纪上', 22)">
+                    <h3>列王纪上</h3>
+                    <p>1 Kings</p>
+                </div>
+                <div class="book-card" onclick="loadBook('列王纪下', 25)">
+                    <h3>列王纪下</h3>
+                    <p>2 Kings</p>
+                </div>
+                <div class="book-card" onclick="loadBook('历代志上', 29)">
+                    <h3>历代志上</h3>
+                    <p>1 Chronicles</p>
+                </div>
+                <div class="book-card" onclick="loadBook('历代志下', 36)">
+                    <h3>历代志下</h3>
+                    <p>2 Chronicles</p>
+                </div>
+                <div class="book-card" onclick="loadBook('以斯拉记', 10)">
+                    <h3>以斯拉记</h3>
+                    <p>Ezra</p>
+                </div>
+                <div class="book-card" onclick="loadBook('尼希米记', 13)">
+                    <h3>尼希米记</h3>
+                    <p>Nehemiah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('以斯帖记', 10)">
+                    <h3>以斯帖记</h3>
+                    <p>Esther</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约伯记', 42)">
+                    <h3>约伯记</h3>
+                    <p>Job</p>
+                </div>
+                <div class="book-card" onclick="loadBook('诗篇', 150)">
+                    <h3>诗篇</h3>
+                    <p>Psalms</p>
+                </div>
+                <div class="book-card" onclick="loadBook('箴言', 31)">
+                    <h3>箴言</h3>
+                    <p>Proverbs</p>
+                </div>
+                <div class="book-card" onclick="loadBook('传道书', 12)">
+                    <h3>传道书</h3>
+                    <p>Ecclesiastes</p>
+                </div>
+                <div class="book-card" onclick="loadBook('雅歌', 8)">
+                    <h3>雅歌</h3>
+                    <p>Song of Solomon</p>
+                </div>
+                <div class="book-card" onclick="loadBook('以赛亚书', 66)">
+                    <h3>以赛亚书</h3>
+                    <p>Isaiah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('耶利米书', 52)">
+                    <h3>耶利米书</h3>
+                    <p>Jeremiah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('耶利米哀歌', 5)">
+                    <h3>耶利米哀歌</h3>
+                    <p>Lamentations</p>
+                </div>
+                <div class="book-card" onclick="loadBook('以西结书', 48)">
+                    <h3>以西结书</h3>
+                    <p>Ezekiel</p>
+                </div>
+                <div class="book-card" onclick="loadBook('但以理书', 12)">
+                    <h3>但以理书</h3>
+                    <p>Daniel</p>
+                </div>
+                <div class="book-card" onclick="loadBook('何西阿书', 14)">
+                    <h3>何西阿书</h3>
+                    <p>Hosea</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约珥书', 3)">
+                    <h3>约珥书</h3>
+                    <p>Joel</p>
+                </div>
+                <div class="book-card" onclick="loadBook('阿摩司书', 9)">
+                    <h3>阿摩司书</h3>
+                    <p>Amos</p>
+                </div>
+                <div class="book-card" onclick="loadBook('俄巴底亚书', 1)">
+                    <h3>俄巴底亚书</h3>
+                    <p>Obadiah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('约拿书', 4)">
+                    <h3>约拿书</h3>
+                    <p>Jonah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('弥迦书', 7)">
+                    <h3>弥迦书</h3>
+                    <p>Micah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('那鸿书', 3)">
+                    <h3>那鸿书</h3>
+                    <p>Nahum</p>
+                </div>
+                <div class="book-card" onclick="loadBook('哈巴谷书', 3)">
+                    <h3>哈巴谷书</h3>
+                    <p>Habakkuk</p>
+                </div>
+                <div class="book-card" onclick="loadBook('西番雅书', 3)">
+                    <h3>西番雅书</h3>
+                    <p>Zephaniah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('哈该书', 2)">
+                    <h3>哈该书</h3>
+                    <p>Haggai</p>
+                </div>
+                <div class="book-card" onclick="loadBook('撒迦利亚书', 14)">
+                    <h3>撒迦利亚书</h3>
+                    <p>Zechariah</p>
+                </div>
+                <div class="book-card" onclick="loadBook('玛拉基书', 4)">
+                    <h3>玛拉基书</h3>
+                    <p>Malachi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Read Section -->
+        <section id="reading">
+            <h2 class="section-title">经典经文速读</h2>
+            <div class="reading-area">
+                <div class="reading-header">
+                    <h3 id="currentBookTitle">约翰福音 3:16</h3>
+                    <span style="font-size: 0.9rem; color: #666;">点击上方书名卡片可切换章节</span>
+                </div>
+                <div class="reading-content" id="verseContent">
+                    <p><span class="verse-number">1</span> 神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。</p>
+                    <p><span class="verse-number">2</span> 因为神差他的儿子降世，不是要定世人的罪，乃是要叫世人因他得救。</p>
+                    <p><span class="verse-number">3</span> 信他的人，不被定罪；不信的人，罪已经定了，因为他不信神独生子的名。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Info Section -->
+        <section class="features">
+            <div class="feature-item">
+                <div class="feature-icon">📖</div>
+                <h3>标准和合本</h3>
+                <p>采用中国基督教协会出版的标准和合本，文字典雅、意译精准，是华语教会最广泛使用的圣经译本。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔍</div>
+                <h3>快速检索</h3>
+                <p>支持按卷名、章节或关键词搜索。无论是研经查考还是背诵默想，都能快速找到所需经文。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>响应式设计</h3>
+                <p>无论您使用电脑、平板还是手机，都能获得流畅、舒适的阅读体验，随时随地亲近神的话语。</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="help">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">什么是和合本圣经？</div>
+                    <div class="faq-answer">和合本圣经是中国基督教协会于1919年出版的中文圣经译本。它由20多位中国学者与西方传教士合作翻译，以文理和浅文理为基础，后经修订成为通俗易懂的官话和合本，被公认为现代中文圣经翻译的里程碑。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">除了和合本还有其他版本吗？</div>
+                    <div class="faq-answer">有的，目前还有和合本修订版（CUV 2010）以及吕振中译本、思高译本等。不同译本在措辞上略有差异，建议在深度研读时参考不同版本。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何开始阅读圣经？</div>
+                    <div class="faq-answer">您可以点击首页导航栏的“新约”或“旧约”，选择感兴趣的卷书开始阅读。也可以使用搜索框查找特定章节。</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于本站</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        本站旨在为华语信徒提供纯净、免费、便捷的圣经阅读平台。我们致力于传播真理，帮助读者更好地理解神的话语。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>常用链接</h4>
+                    <ul>
+                        <li><a href="#">新约全书</a></li>
+                        <li><a href="#">旧约全书</a></li>
+                        <li><a href="#">和合本简介</a></li>
+                        <li><a href="#">研读工具</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系与支持</h4>
+                    <ul>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">使用条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 和合本圣经阅读站. All Rights Reserved. 本站内容仅供个人研读参考，不构成宗教指导。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    
+    <script>
+        // 模拟简单的经文加载逻辑
+        function loadBook(bookName, verseCount) {
+            // 在实际应用中，这里会调用API获取具体经文
+            // 这里为了演示，我们只是更新标题和随机生成一些占位经文
+            document.getElementById('currentBookTitle').textContent = `${bookName} (第1章)`;
+            
+            const contentDiv = document.getElementById('verseContent');
+            let html = '';
+            for(let i = 1; i <= Math.min(verseCount, 10); i++) {
+                html += `<p><span class="verse-number">${i}</span> 这是 ${bookName} 的经文内容占位符。在实际应用中，这里将显示该章节的具体经文翻译。</p>`;
+            }
+            contentDiv.innerHTML = html;
+            
+            // 滚动到阅读区域
+            document.getElementById('reading').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function performSearch() {
+            const input = document.getElementById('searchInput');
+            const keyword = input.value.trim();
+            if(keyword) {
+                // 简单的提示，实际需要后端或本地数据库支持
+                alert(`正在搜索关于 "${keyword}" 的相关经文或资源...`);
+            }
+        }
+
+        // 导航点击高亮处理
+        document.querySelectorAll('.tabs-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                document.querySelectorAll('.tabs-nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+  </html>
