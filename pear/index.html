@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pear的音标查询与发音指南 - 详细解析英式IPA音标、美式音标及美式KK音标，提供音频试听与发音技巧，帮助掌握pear的正确读法。">
+    <meta name="keywords" content="pear的音标,pear发音,英式音标,美式音标,发音指南,英语发音">
+    <title>pear的音标 - 英语单词发音指南与IPA音标查询</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 主要内容区 */
+        main {
+            flex: 1;
+            padding-bottom: 3rem;
+        }
+
+        /* 发音展示卡片 */
+        .pronunciation-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .word-display {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .ipa-group {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .ipa-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+
+        .ipa-symbol {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-family: "Lucida Sans Unicode", "Arial Unicode MS", sans-serif;
+        }
+
+        .ipa-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .audio-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .audio-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .audio-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* 详细解析区 */
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .info-card p, .info-card li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .info-card ul {
+            padding-left: 1.2rem;
+        }
+
+        .tip-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .tip-box strong {
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* 相关词汇 */
+        .related-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background-color: #e0e0e0;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .ipa-group {
+                gap: 1rem;
+            }
+
+            .ipa-item {
+                min-width: 80px;
+            }
+
+            .ipa-symbol {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                display: none; /* 简化移动端导航 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                <span>发音大师</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">音标库</a></li>
+                    <li><a href="#">发音技巧</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>pear的音标查询</h1>
+            <p>标准美式、英式发音对比与详细发音技巧解析</p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 核心发音展示区 -->
+        <article class="pronunciation-card">
+            <div class="word-display">pear</div>
+            
+            <div class="ipa-group">
+                <div class="ipa-item">
+                    <div class="ipa-symbol" title="美式音标">/pɛr/</div>
+                    <div class="ipa-label">美式 IPA</div>
+                    <div class="related-words">
+                        <span class="tag">KK音标</span>
+                    </div>
+                </div>
+                <div class="ipa-item">
+                    <div class="ipa-symbol" title="英式音标">/peə(r)/</div>
+                    <div class="ipa-label">英式 IPA</div>
+                    <div class="related-words">
+                        <span class="tag">DJ音标</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 发音提示</strong>
+                <p>注意 /p/ 是爆破音，/ɛ/ 是前元音，/r/ 是卷舌音。整体节奏短促有力。</p>
+            </div>
+
+            <button class="audio-btn" onclick="playAudio()">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                试听发音
+            </button>
+        </article>
+
+        <!-- 详细解析区 -->
+        <section>
+            <h2 class="section-title">单词详细解析</h2>
+            <div class="grid-layout">
+                
+                <article class="info-card">
+                    <h3>🔤 字母组合与发音</h3>
+                    <p><strong>pear</strong> 源自古英语 <em>perre</em>，是单词 <strong>pear</strong>（梨子）的拼写形式。</p>
+                    <ul>
+                        <li><strong>p</strong>：清辅音 /p/，双唇紧闭后突然放开。</li>
+                        <li><strong>ea</strong>：在重读音节中通常发 /e/ 音（如 <em>bed</em>），但在 <em>pear</em> 中，由于受 /r/ 音的影响，发音近似 /ɛ/。</li>
+                        <li><strong>r</strong>：卷舌音 /r/，舌尖卷起，气流从舌面与硬腭之间流出。</li>
+                    </ul>
+                </article>
+
+                <article class="info-card">
+                    <h3>🎵 美式与英式差异</h3>
+                    <p>这是英语发音中典型的“美式卷舌”现象。</p>
+                    <p>在英式英语（RP）中，单词尾部的 <strong>r</strong> 往往不发音，因此 <strong>pear</strong> 的英式音标常被标注为 <strong>/peə(r)/</strong>，其中 (r) 表示可选发音。</p>
+                    <p>而在美式英语中，<strong>r</strong> 必须发音，因此美式音标为 <strong>/pɛr/</strong>。</p>
+                </article>
+
+                <article class="info-card">
+                    <h3>📝 近义词辨析</h3>
+                    <p>掌握 <strong>pear</strong> 的发音有助于区分相关词汇：</p>
+                    <ul>
+                        <li><strong>pare</strong> /ˈper/ (削皮) - 发音完全相同，但拼写不同。</li>
+                        <li><strong>pair</strong> /per/ (一对) - 发音完全相同，拼写不同。</li>
+                        <li><strong>care</strong> /kɛr/ (照顾) - 开头是 /k/ 而不是 /p/。</li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section style="margin-top: 2rem;">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            <div class="grid-layout">
+                <div class="info-card">
+                    <h3>Q: pear怎么读？</h3>
+                    <p>A: 汉语谐音近似“皮儿”。重音在第一个音节，读作 <strong>/pɛr/</strong>。</p>
+                </div>
+                <div class="info-card">
+                    <h3>Q: pear的英式音标是什么？</h3>
+                    <p>A: 英式英语中，pear的音标通常写作 <strong>/peə(r)/</strong>，注意中间的元音是双元音。</p>
+                </div>
+                <div class="info-card">
+                    <h3>Q: 为什么pear的发音和pair一样？</h3>
+                    <p>A: 这两个词的拼写和发音完全相同，只是意思不同。这是英语中常见的“同音词”现象。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 发音大师. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">隐私政策</a>
+                <a href="#">使用条款</a>
+                <a href="#">联系我们</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 使用 Web Speech API 进行发音演示
+        function playAudio() {
+            const word = "pear";
+            const utterance = new SpeechSynthesisUtterance(word);
+            
+            // 尝试选择美式英语
+            utterance.lang = 'en-US';
+            utterance.rate = 0.9; // 稍微放慢速度
+            
+            // 错误处理
+            utterance.onerror = function(event) {
+                console.error('Speech synthesis error:', event.error);
+                alert('抱歉，您的浏览器不支持语音播放功能，请检查浏览器设置。');
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+</html>
